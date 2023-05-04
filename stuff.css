@@ -1,0 +1,167 @@
+.red {
+  color: #dc2626;
+}
+
+.yellow {
+  color: #ffbf00;
+}
+
+.gray {
+  color: gray
+}
+gray {
+  color: darkgray
+}
+
+.purple {
+  color: purple
+}
+
+.blue {
+  color: blue
+}
+
+.green {
+  color: green
+}
+green {
+  color: green
+}
+
+
+body, html {
+  height: 100%;
+  margin: 0;
+}
+header {
+  background: #fd8b8b;
+}
+
+
+header img {
+  width: 50px;
+  background: white;
+  border-radius: 5px;
+  margin: 0 20px 0 40px;
+}
+right {
+  text-align: right
+}
+left {
+  text-align: left
+}
+center {
+  text-align: center
+}
+  .alert-box {
+	background-color: #fffbcc;
+	color: #777;
+	font-size: 14px;
+	line-height: 23px;
+	padding: 13px 16px;
+	text-align:center;
+	font-family:Arial, Helvetica, sans-serif;
+}
+.alert-box .badge {
+	background-color: #ff0000;
+	border-radius: 3px;
+	color: #fff;
+	margin-left: 4px;
+	margin-right: 4px;
+	padding: 3px 5px 3px 4px;
+	font-weight:bold;
+	text-transform: uppercase;
+}
+.bgimg {
+  background-image: url('https://i.pinv.gq/pinv.gq/background.png');
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  color: red;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 25px;
+}
+
+.topleft {
+  position: absolute;
+  top: 0;
+  left: 16px;
+}
+
+.bottomleft {
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+}
+
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+hr {
+  margin: auto;
+  width: 40%;
+}
+.typewriter h1 {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
+}
+
+.rainbow {
+    display:inline-block;
+    font-size: 50px;
+    background: linear-gradient(45deg,#FF0000,#ff0000,#FFFF00,#00FF00,#0000FF,#4B0082,#8B00FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400% 400%;
+
+    -webkit-animation: rainbowanim 10s ease infinite;
+       -moz-animation: rainbowanim 10s ease infinite;
+            animation: rainbowanim 10s ease infinite;
+}
+@-webkit-keyframes rainbowanim {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes rainbowanim {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes rainbowanim { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.disabled-a {
+  pointer-events: none;
+}
+
+.nb {
+  border:none;
+}
