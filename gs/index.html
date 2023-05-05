@@ -6,6 +6,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>pinv - Game Selection</title>
   <style>
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+ 
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+</style>
+  <style>
     /* Custom CSS */
     body {
       font-family: Arial, sans-serif;
@@ -60,7 +88,10 @@
   <div class="game">
     <img src="/gs/logo.png" alt="City Car Driving Stunt Master">
     <div>
-      <h2>City Car Driving Stunt Master <i class="fa-solid fa-check fa-sm"></i></h2>
+      <h2>City Car Driving Stunt Master</h2>
+      <div class="tooltip"><i class="fa-solid fa-check fa-beat-fade fa-sm" style="color: #ff0000;" class="tooltip"></i>
+  <span class="tooltiptext">Liked By Pinv</span>
+</div>
       <p>A thrilling driving game where you can perform crazy stunts!</p>
       <a href="/ccdsm">Play Now</a>
     </div>
@@ -86,6 +117,9 @@
     <img src="/gs/slopelogo.png" alt="Slope">
     <div>
       <h2>Slope</h2>
+      <div class="tooltip"><i class="fa-solid fa-fire-flame-curved fa-beat fa-sm" style="color: #ff6400;"></i>
+  <span class="tooltiptext">Hot</span>
+</div>
       <p>The classic game almost every kid knows, Slope!</p>
       <a href="/slope">Play Now</a>
     </div>
