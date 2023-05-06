@@ -1,4 +1,53 @@
 <!DOCTYPE html>
+<html>
+<head>
+  <title>Loading Screen Example</title>
+  <script src="https://kit.fontawesome.com/d1c73cbd27.js" crossorigin="anonymous"></script>
+  <style>
+    /* Center the loading icon and message */
+    #loading {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    
+    /* Style the loading icon */
+    #loading-icon {
+      font-size: 5em;
+      color: #777;
+      animation: spin 2s linear infinite;
+    }
+    
+    /* Animate the loading icon */
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Loading screen -->
+  <div id="loading">
+    <i id="loading-icon" class="fas fa-circle-notch"></i>
+    <p>Loading...</p>
+  </div>
+  
+  <!-- JavaScript to clear the loading screen after 2 seconds -->
+  <script>
+    setTimeout(function() {
+      document.getElementById("loading").style.display = "none";
+    }, 2000);
+  </script>
+</body>
+</html>
+
+<!DOCTYPE html>
 <html lang="en">
  <script src="https://kit.fontawesome.com/d1c73cbd27.js" crossorigin="anonymous"></script>
 <head>
