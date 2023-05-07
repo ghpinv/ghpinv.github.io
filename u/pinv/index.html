@@ -1,70 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Pinv's Profile</title>
-  <link rel="stylesheet" href="/profile.css">
-  <script src="https://kit.fontawesome.com/d1c73cbd27.js" crossorigin="anonymous"></script>
-</head>
-<body>
-  <div class="profile-card">
-    <img src="https://pinvgq.github.io/imgs/user-pinv.png" alt="Profile Picture" class="profile-picture">
-    <h1 class="display-name">Pinv</h1>
-    <p class="username">@itspinv</p>
-    <p class="about-me">Hi, I'm Pinv! I'm a web developer and I love building things with code.</p>
-    <div class="profile-badges">
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Pinv's Profile</title>
+    <link rel="stylesheet" href="profile.css">
+    <script src="https://kit.fontawesome.com/d1c73cbd27.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="profile-card">
+      <div class="profile-header">
+        <img class="profile-picture" src="https://pinvgq.github.io/imgs/user-content/pfp/user-pinv.png" alt="Profile Picture">
+        <div>
+          <h1 class="display-name">Pinv</h1>
+          <h2 class="username">@itspinv</h2>
+        </div>
+      </div>
+      <div class="profile-about">
+        <p>About me: I am a passionate web developer who loves to learn and create new things.</p>
+      </div>
+      <div class="profile-badges">
         <span class="badge"><i class="fa fa-crown"></i> Owner</span>
         <span class="badge"><i class="fa fa-hammer"></i> Admin</span>
         <span class="badge"><i class="fa fa-star"></i> VIP</span>
-    </div>
-  </div>
-  <div class="posts-section">
-    <div class="post">
-      <img src="https://pinvgq.github.io/imgs/user-content/pfp/user-pinv.png" alt="Profile Picture" class="post-picture">
-      <div class="post-content">
-        <p class="post-author">Pinv</p>
-        <p class="post-text">Check out this cool website I made!</p>
-        <p class="post-time">3 hours ago</p>
       </div>
     </div>
-    <div class="post">
-      <img src="https://pinvgq.github.io/imgs/user-content/pfp/user-pinv.png" alt="Profile Picture" class="post-picture">
-      <div class="post-content">
-        <p class="post-author">Pinv</p>
-        <p class="post-text">Just finished reading a great book!</p>
-        <p class="post-time">1 day ago</p>
-      </div>
-    </div>
-    <form class="post-form">
-      <img src="https://pinvgq.github.io/imgs/user-pinv.png" alt="Profile Picture" class="post-picture">
-      <textarea class="post-input" placeholder="What's on your mind?"></textarea>
-      <button class="post-button">Post</button>
-    </form>
-    <div class="comments-section">
-      <h2>Comments</h2>
-      <div class="comment">
-        <img src="https://example.com/profile-pic.jpg" alt="Profile Picture" class="comment-picture">
-        <div class="comment-content">
-          <p class="comment-author">John Doe</p>
-          <p class="comment-text">This is a comment.</p>
-          <p class="comment-time">2 hours ago</p>
-        </div>
-      </div>
-      <div class="comment">
-        <img src="https://example.com/profile-pic.jpg" alt="Profile Picture" class="comment-picture">
-        <div class="comment-content">
-          <p class="comment-author">Jane Smith</p>
-          <p class="comment-text">This is another comment.</p>
-          <p class="comment-time">1 hour ago</p>
-        </div>
-      </div>
-      <form class="comment-form">
-        <img src="https://example.com/profile-pic.jpg" alt="Profile Picture" class="comment-picture">
-        <textarea class="comment-input" placeholder="Add a comment"></textarea>
-        <button class"comment-button">Comment</button>
-</form>
-</div>
 
-  </div>
-</body>
+    <div class="post-card">
+      <div class="post-header">
+        <img class="post-picture" src="https://pinvgq.github.io/imgs/user-content/pfp/user-pinv.png" alt="Profile Picture">
+        <div>
+          <h3 class="post-display-name">Pinv</h3>
+          <h4 class="post-username">@pinv</h4>
+        </div>
+      </div>
+      <div class="post-content">
+        <p>This is an example post, <i>an example post of a feature only available to admins and VIPs</i></p>
+      </div>
+      <div class="post-footer">
+        <span class="post-time">5/7/23 9:31</span>
+        <span class="post-likes"><i class="fa fa-heart"></i> 2 likes</span>
+        <span class="post-comments"><i class="fa fa-comments"></i> 0 comments</span>
+      </div>
+    </div>
+
+  </body>
 </html>
