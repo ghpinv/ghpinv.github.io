@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Center the loading icon and message */
+    #loading {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    
+    /* Style the loading icon */
+    #loading-icon {
+      font-size: 5em;
+      color: #777;
+      animation: spin 2s linear infinite;
+    }
+    
+    /* Animate the loading icon */
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Loading screen -->
+  <div id="loading">
+    <i id="loading-icon" class="fas fa-circle-notch"></i>
+    <p>Loading...</p>
+  </div>
+  
+  <!-- JavaScript to clear the loading screen after 2 seconds -->
+  <script>
+    setTimeout(function() {
+      document.getElementById("loading").style.display = "none";
+    }, 2000);
+  </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+ <script src="https://kit.fontawesome.com/d1c73cbd27.js" crossorigin="anonymous"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pinv - Badges</title>
+  <style>
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+ 
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+</style>
+  <style>
+    /* Custom CSS */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .game {
+      display: flex;
+      align-items: center;
+      margin: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    .game img {
+      width: 128px;
+      height: 128px;
+      margin-right: 20px;
+    }
+    .game h2 {
+      margin: 0;
+      font-size: 24px;
+      color: #333;
+    }
+    .game p {
+      margin: 10px 0 0 0;
+      font-size: 16px;
+      color: #666;
+    }
+    .game a {
+      display: block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      background-color: #af4c4c;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+    }
+    .game a:hover {
+      background-color: #8e3e3e;
+    }
+    
+    .alert-box {
+	background-color: #ffcccc;
+	color: #777;
+	font-size: 14px;
+	line-height: 23px;
+	padding: 13px 16px;
+	text-align:center;
+	font-family:Arial, Helvetica, sans-serif;
+}
+.alert-box .badge {
+	background-color: #f58f2a;
+	border-radius: 3px;
+	color: #fff;
+	margin-left: 4px;
+	margin-right: 4px;
+	padding: 3px 5px 3px 4px;
+	font-weight:bold;
+	text-transform: uppercase;
+}
+  </style>
+</head>
+<body>
+  <div class="alert-box">
+    <span class="badge">Redmonkey needs help!</span> If you do not know, <a href="/u/redmonkey">Redmonkey</a> has been attempting to play <a href="/fnaf1">FNAF 1</a> and has been faling miserably, somebody needs to teach him.
+  </div>  
+  <h1>Game Selection</h1>
+  <center>Page created by <a href="/u/pinv">Pinv</a> <i class="fa-solid fa-bolt fa-lg" style="color: #9c9826;"></i></center>
+  
+ <i class="fa-solid fa-circle-check fa-lg" style="color: #ff0000;" class="tooltip"></i> - Liked By Pinv | This game is liked by the creator of the website, Pinv.
+ <i class="fa-solid fa-circle-info fa-beat-fade fa-lg" style="color: #ff0000;"></i> - Information | <i>Hover over to see details usally under a game.</i>
+ <i class="fa-solid fa-fire-flame-curved fa-lg" style="color: #ff6400;"></i> - Hot | Usally a well known game.
+ <i class="fa-solid fa-school-circle-exclamation fa-lg" style="color: #ff9600;"></i> - Hot In Pinv's School | Usally under a well known game in Pinv's School.
+ <i class="fa-solid fa-spinner fa-spin-pulse fa-lg" style="color: #278b45;"></i> - OG | The game this is under has been out for like ones, tens or even hundreds of years!
+ <i class="fa-solid fa-user fa-lg" style="color: #1f5125;"></i> Requested by Someone! | The game this is under has been requested by a member or a user of this website!
+ <i class="fa-solid fa-square-plus fa-fade fa-lg" style="color: #27429b;"></i> New | A new game recently added to the website.
