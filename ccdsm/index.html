@@ -21,6 +21,9 @@
 		.red {
 			background-color: red !important;
 		}
+		.gray {
+			background-color: gray !important;
+		}
 	</style>
 <iframe height="730" width="100%" src="https://ubg77.github.io/edit/city-car-driving-stunt-master/" frameborder="0"></iframe>
 	<button id="montage-btn" onclick="playMontage()">Montage Mode</button>
@@ -49,8 +52,9 @@
 		}
 
 		function stopColorChange() {
-			document.getElementById("montage-btn").style.backgroundColor = "red";
-			document.getElementById("montage-btn").classList.add("red");
+			document.getElementById("montage-btn").style.backgroundColor = "gray";
+			document.getElementById("montage-btn").classList.add("gray");
+			document.getElementById("montage-btn").textContent = "Disabled";
 			document.body.style.backgroundColor = "white";
 			clearTimeout(colorTimeout);
 			montageAudio.pause();
