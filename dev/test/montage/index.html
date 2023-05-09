@@ -63,14 +63,26 @@
 			montageAudio.removeEventListener('ended', stopColorChange);
 			document.getElementById("montage-btn").style.backgroundColor = "gray";
 			document.getElementById("montage-btn").classList.add("gray");
+			document.getElementById("montage-btn").innerHTML = "Disabled: 10s";
 			document.getElementById("montage-btn").setAttribute("disabled", true);
-			setTimeout(resetMontage, 10000);
+			setTimeout(countdown, 1000);
+		}
+
+		function countdown() {
+			var timeLeft = parseInt(document.getElementById("montage-btn").innerHTML.split(" ")[1]);
+			if (timeLeft > 1) {
+				document.getElementById("montage-btn").innerHTML = "Disabled: " + (timeLeft - 1) + "s";
+				setTimeout(countdown, 1000);
+			} else {
+				resetMontage();
+			}
 		}
 
 		function resetMontage() {
 			document.getElementById("montage-btn").style.backgroundColor = "blue";
 			document.getElementById("montage-btn").classList.remove("red", "gray");
 			document.getElementById("montage-btn").removeAttribute("disabled");
+			document.getElementById("montage-btn").innerHTML = "Montage Mode";
 			document.getElementById("montage-btn").setAttribute("onclick", "playMontage()");
 			document.body.style.backgroundColor = "white";
 		}
