@@ -22,6 +22,10 @@
 		.red {
 			background-color: red !important;
 		}
+
+		.gray {
+			background-color: gray !important;
+		}
 	</style>
 </head>
 <body>
@@ -46,6 +50,7 @@
 			var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
 			var randomColor = colors[Math.floor(Math.random() * colors.length)];
 			document.getElementById("montage-btn").style.backgroundColor = randomColor;
+			document.body.style.backgroundColor = randomColor;
 			colorTimeout = setTimeout(changeColors, 300);
 		}
 
@@ -57,13 +62,14 @@
 			montageAudio.currentTime = 0;
 			montageAudio.removeEventListener('ended', stopColorChange);
 			document.getElementById("montage-btn").style.backgroundColor = "gray";
+			document.getElementById("montage-btn").classList.add("gray");
 			document.getElementById("montage-btn").setAttribute("disabled", true);
 			setTimeout(resetMontage, 10000);
 		}
 
 		function resetMontage() {
 			document.getElementById("montage-btn").style.backgroundColor = "blue";
-			document.getElementById("montage-btn").classList.remove("red");
+			document.getElementById("montage-btn").classList.remove("red", "gray");
 			document.getElementById("montage-btn").removeAttribute("disabled");
 			document.getElementById("montage-btn").setAttribute("onclick", "playMontage()");
 			document.body.style.backgroundColor = "white";
