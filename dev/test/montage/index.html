@@ -41,10 +41,13 @@
 		var colorTimeout;
 
 		function playMontage() {
+			var montageBtn = document.getElementById("montage-btn");
+			montageBtn.setAttribute("disabled", true);
 			montageAudio.play();
 			changeColors();
 			setTimeout(stopColorChange, timeThreshold);
 		}
+
 
 		function changeColors() {
 			var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
