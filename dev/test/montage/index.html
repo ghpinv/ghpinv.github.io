@@ -43,6 +43,7 @@
 		function playMontage() {
 			var montageBtn = document.getElementById("montage-btn");
 			montageBtn.setAttribute("disabled", true);
+			document.getElementById("montage-btn").innerHTML = "Disabled";
 			montageAudio.play();
 			changeColors();
 			setTimeout(stopColorChange, timeThreshold);
