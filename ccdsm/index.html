@@ -21,6 +21,7 @@
 		.red {
 			background-color: red !important;
 		}
+
 		.gray {
 			background-color: gray !important;
 		}
@@ -34,7 +35,7 @@
 
 	<script>
 		var montageAudio = document.getElementById("montage-audio");
-		var timeThreshold = 103000; // 1 minute and 43 seconds in milliseconds
+		var timeThreshold = 101000; // 1 minute and 43 seconds in milliseconds
 		var colorTimeout;
 
 		function playMontage() {
@@ -48,18 +49,39 @@
 			var randomColor = colors[Math.floor(Math.random() * colors.length)];
 			document.getElementById("montage-btn").style.backgroundColor = randomColor;
 			document.body.style.backgroundColor = randomColor;
-			colorTimeout = setTimeout(changeColors, 200);
+			colorTimeout = setTimeout(changeColors, 300);
 		}
 
 		function stopColorChange() {
-			document.getElementById("montage-btn").style.backgroundColor = "gray";
-			document.getElementById("montage-btn").classList.add("gray");
-			document.getElementById("montage-btn").textContent = "Disabled";
-			document.body.style.backgroundColor = "white";
+			document.getElementById("montage-btn").style.backgroundColor = "red";
+			document.getElementById("montage-btn").classList.add("red");
 			clearTimeout(colorTimeout);
 			montageAudio.pause();
 			montageAudio.currentTime = 0;
 			montageAudio.removeEventListener('ended', stopColorChange);
-			document.getElementById("montage-btn").removeAttribute("onclick");
+			document.getElementById("montage-btn").style.backgroundColor = "gray";
+			document.getElementById("montage-btn").classList.add("gray");
+			document.getElementById("montage-btn").innerHTML = "Disabled: 10s";
+			document.getElementById("montage-btn").setAttribute("disabled", true);
+			setTimeout(countdown, 1000);
+		}
+
+		function countdown() {
+			var timeLeft = parseInt(document.getElementById("montage-btn").innerHTML.split(" ")[1]);
+			if (timeLeft > 1) {
+				document.getElementById("montage-btn").innerHTML = "Disabled: " + (timeLeft - 1) + "s";
+				setTimeout(countdown, 1000);
+			} else {
+				resetMontage();
+			}
+		}
+
+		function resetMontage() {
+			document.getElementById("montage-btn").style.backgroundColor = "blue";
+			document.getElementById("montage-btn").classList.remove("red", "gray");
+			document.getElementById("montage-btn").removeAttribute("disabled");
+			document.getElementById("montage-btn").innerHTML = "Montage Mode";
+			document.getElementById("montage-btn").setAttribute("onclick", "playMontage()");
+			document.body.style.backgroundColor = "white";
 		}
 	</script>
