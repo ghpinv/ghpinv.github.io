@@ -2,33 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Link to Font Awesome CSS file -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-wiNtItwENHDKL/LBdNjySCsctyNiq+8f1v9+dq3iZP3oZr7o8rL0m1mzpwMmnJyKnW8ehdeCf9Gg+pNDJq3HSw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Game Selection Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <style>
     /* Custom CSS */
     body {
       font-family: Arial, sans-serif;
       background-color: #f2f2f2;
-      margin: 0;
-      padding: 0;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-top: 30px;
     }
     .announcement {
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: #333;
-      color: #fff;
-      height: 40px;
+      padding: 20px;
+      background-color: #FEEFB3;
+      border: 2px solid #FDB813;
+      border-radius: 5px;
+      margin: 20px;
     }
     .announcement i {
-      margin-right: 10px;
+      font-size: 48px;
+      color: #FDB813;
+      margin-right: 20px;
     }
-    h1 {
-      text-align: center;
+    .announcement p {
+      margin: 0;
+      font-size: 24px;
       color: #333;
-      margin-top: 20px;
+      font-weight: bold;
     }
     .game {
       display: flex;
@@ -70,14 +76,12 @@
   </style>
 </head>
 <body>
-  <!-- Announcement panel -->
+  <h1>Game Selection Page</h1>
+
   <div class="announcement">
-    <i class="fa fa-bullhorn"></i>
+    <i class="fa fa-exclamation-circle"></i>
     <p>Important Announcement!</p>
   </div>
-  
-
-  <h1>Game Selection Page</h1>
 
   <div class="game">
     <img src="https://via.placeholder.com/32x32" alt="City Car Driving Stunt Master">
@@ -90,12 +94,12 @@
 
   <div class="game">
     <img src="https://via.placeholder.com/32x32" alt="Super Mario 64">
-<div>
-<h2>Super Mario 64</h2>
-<p>Join Mario in his 3D adventure to save Princess Peach!</p>
-<a href="#">Play Now</a>
-</div>
-
+    <div>
+      <h2>Super Mario 64</h2>
+      <p>The classic Nintendo game that started it all!</p>
+      <a href="#">Play Now</a>
+    </div>
   </div>
+
 </body>
 </html>
