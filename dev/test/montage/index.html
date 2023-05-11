@@ -1,135 +1,100 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Montage Mode</title>
+	<title>Montage Mode Button</title>
 	<style>
-		#montageBtn {
-			padding: 10px 20px;
-			font-size: 24px;
-			background-color: #4CAF50;
+		body {
+			background-color: white;
+			transition: background-color 0.3s ease;
+		}
+
+		#montage-btn {
+			background-color: blue;
 			color: white;
+			padding: 10px 20px;
 			border: none;
-			cursor: pointer;
 			border-radius: 5px;
-			margin-top: 20px;
+			font-size: 16px;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+		}
+
+		.red {
+			background-color: red !important;
+		}
+
+		.gray {
+			background-color: gray !important;
 		}
 	</style>
 </head>
 <body>
-	<button id="montageBtn" onclick="toggleMontage()">Montage Mode</button>
+	<button id="montage-btn" onclick="playMontage()">Montage Mode</button>
+
+	<audio id="montage-audio">
+		<source src="/montage/montage.mp3" type="audio/mp3">
+	</audio>
+
 	<script>
-		var montageBtn = document.getElementById("montageBtn");
-		var selectedMusic = "/montage/montage.mp3";
-		var isMontageEnabled = false;
-		var audio = null;
-		var timer = null;
-		
-		function toggleMontage() {
-			isMontageEnabled = !isMontageEnabled;
-			if (isMontageEnabled) {
-				selectedMusic = "/montage/montage.mp3";
-				montageBtn.style.backgroundColor = "#f44336";
-				montageBtn.innerHTML = "Disabled";
-				montageBtn.disabled = true;
-				changeBackgroundColor();
-				playMontage();
-				startTimer();
-			} else {
-				selectedMusic = "";
-				montageBtn.style.backgroundColor = "#4CAF50";
-				montageBtn.innerHTML = "Montage Mode";
-				montageBtn.disabled = false;
-				document.body.style.backgroundColor = "#FFFFFF";
-				if (audio) {
-					audio.pause();
-				}
-				clearInterval(timer);
-			}
-		}
+		var montageAudio = document.getElementById("montage-audio");
+		var timeThreshold = 103000; // 1 minute and 43 seconds in milliseconds
+		var colorTimeout;
+
+		var montageAudio = new Audio();
+		var montageFiles = ["/montage/montage.mp3", "/montage/montage-1.mp3", "/montage/montage-2.mp3"];
 
 		function playMontage() {
-			audio = new Audio(selectedMusic);
-			audio.crossOrigin = "anonymous";
-			audio.play();
-			audio.onended = function() {
-				if (isMontageEnabled) {
-					var musicList = ["/montage/montage.mp3", "/montage/montage-1.mp3", "/montage/montage-2.mp3"];
-					selectedMusic = musicList[Math.floor(Math.random() * musicList.length)];
-					playMontage();
-				}
+			var montageBtn = document.getElementById("montage-btn");
+			montageBtn.setAttribute("disabled", true);
+			var randomIndex = Math.floor(Math.random() * montageFiles.length);
+			montageAudio.src = montageFiles[randomIndex];
+			montageAudio.play();
+			changeColors();
+			setTimeout(stopColorChange, timeThreshold);
+		}
+
+
+
+		function changeColors() {
+			var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
+			var randomColor = colors[Math.floor(Math.random() * colors.length)];
+			document.getElementById("montage-btn").style.backgroundColor = randomColor;
+			document.body.style.backgroundColor = randomColor;
+			colorTimeout = setTimeout(changeColors, 300);
+		}
+
+		function stopColorChange() {
+			document.getElementById("montage-btn").style.backgroundColor = "red";
+			document.getElementById("montage-btn").classList.add("red");
+			clearTimeout(colorTimeout);
+			montageAudio.pause();
+			montageAudio.currentTime = 0;
+			montageAudio.removeEventListener('ended', stopColorChange);
+			document.getElementById("montage-btn").style.backgroundColor = "gray";
+			document.getElementById("montage-btn").classList.add("gray");
+			document.getElementById("montage-btn").innerHTML = "Disabled: 10s";
+			document.getElementById("montage-btn").setAttribute("disabled", true);
+			setTimeout(countdown, 1000);
+		}
+
+		function countdown() {
+			var timeLeft = parseInt(document.getElementById("montage-btn").innerHTML.split(" ")[1]);
+			if (timeLeft > 1) {
+				document.getElementById("montage-btn").innerHTML = "Disabled: " + (timeLeft - 1) + "s";
+				setTimeout(countdown, 1000);
+			} else {
+				resetMontage();
 			}
 		}
 
-		function startTimer() {
-			var time = 120;
-			timer = setInterval(function() {
-				var countdown = montageBtn.innerHTML.split(":")[1];
-				if (countdown > 0) {
-					montageBtn.innerHTML = "Disabled: " + (countdown - 1) + "s";
-				} else {
-					montageBtn.style.backgroundColor = "gray";
-					montageBtn.innerHTML = "Disabled: 10s";
-					montageBtn.disabled = true;
-					clearInterval(timer);
-					setTimeout(function() {
-						montageBtn.style.backgroundColor = "#4CAF50";
-						montageBtn.innerHTML = "Montage Mode";
-						montageBtn.disabled = false;
-					}, 10000);
-				}
-			}, 1000);
+		function resetMontage() {
+			document.getElementById("montage-btn").style.backgroundColor = "blue";
+			document.getElementById("montage-btn").classList.remove("red", "gray");
+			document.getElementById("montage-btn").removeAttribute("disabled");
+			document.getElementById("montage-btn").innerHTML = "Montage Mode";
+			document.getElementById("montage-btn").setAttribute("onclick", "playMontage()");
+			document.body.style.backgroundColor = "white";
 		}
-		
-		function changeBackgroundColor() {
-			var audio = new Audio(selectedMusic);
-			audio.crossOrigin = "anonymous";
-			audio.play();
-			var audioCtx = new AudioContext();
-			var audioSrc = audioCtx.createMediaElementSource(audio);
-			var analyser = audioCtx.createAnalyser();
-			audioSrc.connect(analyser);
-			analyser.connect(audioCtx.destination);
-			analyser.fftSize = 256;
-			var bufferLength = analyser.frequencyBinCount;
-			var dataArray = new Uint8Array(bufferLength);
-
-			function draw() {
-  			requestAnimationFrame(draw);
-  			analyser.getByteFrequencyData(dataArray);
-
-  			// Calculate average frequency
-  			var sum = 0;
-  			for (var i = 0; i < bufferLength; i++) {
-    			 sum += dataArray[i];
- 			 }
-  			var averageFrequency = sum / bufferLength;
-
-  			// Map frequency to color
-  			var frequencyToColor = Math.floor(mapRange(averageFrequency, 0, 255, 0, colorArray.length - 1));
-  			var color = colorArray[frequencyToColor];
-
-  			// Update button background color
-  			montageBtn.style.backgroundColor = color;
-
-  			// Check if timer has ended
-  			if (timer < 0) {
-    			clearInterval(countdownInterval);
-    			montageBtn.style.backgroundColor = "#FF0000";
-    			montageBtn.disabled = false;
-    			montageBtn.innerHTML = "Montage Mode";
-    			document.body.style.backgroundColor = "#FFFFFF";
-    			return;
-  			}
-
-  			// Update countdown timer
-  			var seconds = timer % 60;
-  			montageBtn.innerHTML = "Disabled: " + seconds + "s";
-
-  			// Decrease timer
-  			timer--;
-
-			}
-			requestAnimationFrame(draw);
 	</script>
-    </body>
+</body>
 </html>
