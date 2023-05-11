@@ -2,25 +2,20 @@
 <html>
 <head>
 	<title>Montage Mode</title>
-	<style>
+	<style type="text/css">
 		body {
 			background-color: white;
-			text-align: center;
-			padding-top: 50px;
-			font-family: Arial, sans-serif;
 		}
-
 		button {
-			font-size: 24px;
-			padding: 10px 20px;
-			background-color: blue;
+			background-color: red;
 			color: white;
-			border-radius: 10px;
+			font-size: 24px;
+			padding: 12px 24px;
 			border: none;
+			border-radius: 4px;
 			cursor: pointer;
-			transition: background-color 0.3s;
+			transition: background-color 0.5s ease;
 		}
-
 		button.disabled {
 			background-color: gray;
 			cursor: not-allowed;
@@ -28,82 +23,169 @@
 	</style>
 </head>
 <body>
-	<button id="montage-btn">Montage Mode</button>
+	<button id="montageBtn">Montage Mode</button>
+	<audio id="montageAudio" src=""></audio>
+	<script type="text/javascript">
+		var audioList = ["/montage/montage.mp3", "/montage/montage-1.mp3", "/montage/montage-2.mp3"];
 
-	<audio id="montage-audio"></audio>
+		function randomAudio() {
+			var index = Math.floor(Math.random() * audioList.length);
+			return audioList[index];
+		}
 
-	<script>
-		var montageBtn = document.getElementById("montage-btn");
-		var montageAudio = document.getElementById("montage-audio");
+		var montageBtn = document.getElementById("montageBtn");
+		var montageAudio = document.getElementById("montageAudio");
+		var isDisabled = false;
 
-		var songs = [
-			"/montage/montage.mp3",
-			"/montage/montage-1.mp3",
-			"/montage/montage-2.mp3"
-		];
-
-		var timer = null;
-
-		function disableMontageBtn() {
+		function startMontage() {
+			isDisabled = true;
 			montageBtn.classList.add("disabled");
 			montageBtn.disabled = true;
-			montageBtn.innerHTML = "Disabled: 10s";
-			var countdown = 10;
-			var countdownTimer = setInterval(function() {
-				countdown--;
-				montageBtn.innerHTML = "Disabled: " + countdown + "s";
-				if (countdown === 0) {
-					clearInterval(countdownTimer);
-					enableMontageBtn();
+
+			var audioSrc = randomAudio();
+			montageAudio.src = audioSrc;
+			montageAudio.play();
+
+			var context = new AudioContext();
+			var src = context.createMediaElementSource(montageAudio);
+			var analyser = context.createAnalyser();
+			src.connect(analyser);
+			analyser.connect(context.destination);
+			analyser.fftSize = 64;
+			var bufferLength = analyser.frequencyBinCount;
+			var dataArray = new Uint8Array(bufferLength);
+
+			var timer = setInterval(function() {
+				var countdown = montageBtn.innerHTML.split(":")[1];
+				if (countdown > 1) {
+					countdown--;
+					montageBtn.innerHTML = "Disabled: " + countdown + "s";
+				} else {
+					clearInterval(timer);
+					montageBtn.innerHTML = "Montage Mode";
+					isDisabled = false;
+					montageBtn.classList.remove("disabled");
+					montageBtn.disabled = false;
+
+					setTimeout(function() {
+						startMontage();
+					}, 10000);
 				}
 			}, 1000);
-		}
 
-		function enableMontageBtn() {
-			montageBtn.classList.remove("disabled");
-			montageBtn.disabled = false;
-			montageBtn.innerHTML = "Montage Mode";
-		}
+			var colorTimer = setInterval(function() {
+				if (montageBtn.classList.contains("disabled")) {
+					var r = Math.floor(Math.random() * 256);
+					var g = Math.floor(Math.random() * 256);
+					var b = Math.floor(Math.random() * 256);
+					var color = "rgb(" + r + "," + g + "," + b + ")";
+					montageBtn.style.backgroundColor = color;
+				} else {
+					clearInterval(colorTimer);
+					montageBtn.style.backgroundColor = "red";
+				}
+			}, 300);
 
-		function playRandomSong() {
-			var randomSongIndex = Math.floor(Math.random() * songs.length);
-			var randomSong = songs[randomSongIndex];
-			montageAudio.src = randomSong;
-			montageAudio.play();
-			changeBackgroundColorWithBeat();
-		}
+			montageAudio.addEventListener("ended", function() {
+				clearInterval(colorTimer);
+				montageBtn.style.backgroundColor = "white";
 
-		function changeBackgroundColorWithBeat() {
-			var color = '#';
-			var letters = '0123456789ABCDEF';
-			for (var i = 0; i < 6; i++) {
-				color += letters[Math.floor(Math.random() * 16)];
-			}
-			document.body.style.backgroundColor = color;
-			setTimeout(function() {
-				changeBackgroundColorWithBeat();
-			}, getBeatDelay());
-		}
+				var whiteTimer = setInterval(function() {
+					if (montageBtn.classList.contains("disabled")) {
+						clearInterval(whiteTimer);
+					} else {
+						var r = Math.floor(Math.random() * 256);
+						var g = Math.floor(Math.random() * 256);
+						var b = Math.floor(Math.random() * 256);
+						var color = getRandomColor();
+						var audio = new Audio(getRandomMontage());
 
-		function getBeatDelay() {
-			var delay = montageAudio.duration / 100;
-			return delay;
-		}
+montageBtn.addEventListener("click", function() {
+  montageBtn.disabled = true;
+  montageBtn.style.backgroundColor = "gray";
+  audio.pause();
+  audio = new Audio(getRandomMontage());
+  audio.play();
+  var interval = setInterval(function() {
+    var countdown = montageBtn.innerHTML.split(":")[1];
+    countdown--;
+    montageBtn.innerHTML = "Disabled: " + countdown + "s";
+    if (countdown === 0) {
+      clearInterval(interval);
+      montageBtn.disabled = false;
+      montageBtn.style.backgroundColor = color;
+      montageBtn.innerHTML = "Montage Mode";
+      var resetInterval = setInterval(function() {
+        montageBtn.disabled = true;
+        montageBtn.style.backgroundColor = "gray";
+        audio.pause();
+        audio = new Audio(getRandomMontage());
+        audio.play();
+        var resetCountdown = 10;
+        var resetTimer = setInterval(function() {
+          montageBtn.innerHTML = "Disabled: " + resetCountdown + "s";
+          resetCountdown--;
+          if (resetCountdown < 0) {
+            clearInterval(resetTimer);
+            montageBtn.disabled = false;
+            montageBtn.style.backgroundColor = "purple";
+            montageBtn.innerHTML = "Montage Mode";
+          }
+        }, 1000);
+      }, 15000);
+    }
+  }, 1000);
+  
+  var analyzer = new AudioContext().createAnalyser();
+  analyzer.fftSize = 256;
+  var src = new Audio(getRandomMontage());
+  var audioSrc = new AudioContext().createMediaElementSource(src);
+  audioSrc.connect(analyzer);
+  analyzer.connect(new AudioContext().destination);
+  
+  var bufferLength = analyzer.frequencyBinCount;
+  var dataArray = new Uint8Array(bufferLength);
+  
+  function animateBackground() {
+    requestAnimationFrame(animateBackground);
+    analyzer.getByteFrequencyData(dataArray);
+    var average = getAverageVolume(dataArray);
+    var newColor = "rgb(" + average + "," + average + "," + average + ")";
+    document.body.style.backgroundColor = newColor;
+  }
+  
+  src.play();
+  animateBackground();
+  
+});
 
-		montageBtn.addEventListener("click", function() {
-			disableMontageBtn();
-			playRandomSong();
-		});
+function getRandomColor() {
+  var letters = "0123456789ABCDEF";
+  var color = "#";
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
 
-		montageAudio.addEventListener("ended", function() {
-			document.body.style.backgroundColor = "white";
-			montageBtn.style.backgroundColor = "red";
-			montageBtn.addEventListener("click", function() {
-				disableMontageBtn();
-				playRandomSong();
-			});
-		});
+function getRandomMontage() {
+  var montages = ["/montage/montage.mp3", "/montage/montage-1.mp3", "/montage/montage-2.mp3"];
+  return montages[Math.floor(Math.random() * montages.length)];
+}
 
+function getAverageVolume(array) {
+  var values = 0;
+  var average;
+
+  var length = array.length;
+
+  for (var i = 0; i < length; i++) {
+    values += array[i];
+  }
+
+  average = values / length;
+  return average;
+}
 	</script>
 </body>
 </html>
