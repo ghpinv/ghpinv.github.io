@@ -46,6 +46,7 @@
 		function playMontage() {
 			var montageBtn = document.getElementById("montage-btn");
 			montageBtn.setAttribute("disabled", true);
+			document.getElementById("montage-btn").innerHTML = "Disabled";
 			var randomIndex = Math.floor(Math.random() * montageFiles.length);
 			montageAudio.src = montageFiles[randomIndex];
 			montageAudio.play();
