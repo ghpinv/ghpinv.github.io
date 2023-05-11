@@ -1,100 +1,109 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Montage Mode Button</title>
+	<title>Montage Mode</title>
 	<style>
 		body {
 			background-color: white;
-			transition: background-color 0.3s ease;
+			text-align: center;
+			padding-top: 50px;
+			font-family: Arial, sans-serif;
 		}
 
-		#montage-btn {
+		button {
+			font-size: 24px;
+			padding: 10px 20px;
 			background-color: blue;
 			color: white;
-			padding: 10px 20px;
+			border-radius: 10px;
 			border: none;
-			border-radius: 5px;
-			font-size: 16px;
 			cursor: pointer;
-			transition: background-color 0.3s ease;
+			transition: background-color 0.3s;
 		}
 
-		.red {
-			background-color: red !important;
-		}
-
-		.gray {
-			background-color: gray !important;
+		button.disabled {
+			background-color: gray;
+			cursor: not-allowed;
 		}
 	</style>
 </head>
 <body>
-	<button id="montage-btn" onclick="playMontage()">Montage Mode</button>
+	<button id="montage-btn">Montage Mode</button>
 
-	<audio id="montage-audio">
-		<source src="/montage/montage.mp3" type="audio/mp3">
-	</audio>
+	<audio id="montage-audio"></audio>
 
 	<script>
+		var montageBtn = document.getElementById("montage-btn");
 		var montageAudio = document.getElementById("montage-audio");
-		var timeThreshold = 103000; // 1 minute and 43 seconds in milliseconds
-		var colorTimeout;
 
-		var montageAudio = new Audio();
-		var montageFiles = ["/montage/montage.mp3", "/montage/montage-1.mp3", "/montage/montage-2.mp3"];
+		var songs = [
+			"/montage/montage.mp3",
+			"/montage/montage-1.mp3",
+			"/montage/montage-2.mp3"
+		];
 
-		function playMontage() {
-			var montageBtn = document.getElementById("montage-btn");
-			montageBtn.setAttribute("disabled", true);
-			var randomIndex = Math.floor(Math.random() * montageFiles.length);
-			montageAudio.src = montageFiles[randomIndex];
+		var timer = null;
+
+		function disableMontageBtn() {
+			montageBtn.classList.add("disabled");
+			montageBtn.disabled = true;
+			montageBtn.innerHTML = "Disabled: 10s";
+			var countdown = 10;
+			var countdownTimer = setInterval(function() {
+				countdown--;
+				montageBtn.innerHTML = "Disabled: " + countdown + "s";
+				if (countdown === 0) {
+					clearInterval(countdownTimer);
+					enableMontageBtn();
+				}
+			}, 1000);
+		}
+
+		function enableMontageBtn() {
+			montageBtn.classList.remove("disabled");
+			montageBtn.disabled = false;
+			montageBtn.innerHTML = "Montage Mode";
+		}
+
+		function playRandomSong() {
+			var randomSongIndex = Math.floor(Math.random() * songs.length);
+			var randomSong = songs[randomSongIndex];
+			montageAudio.src = randomSong;
 			montageAudio.play();
-			changeColors();
-			setTimeout(stopColorChange, timeThreshold);
+			changeBackgroundColorWithBeat();
 		}
 
-
-
-		function changeColors() {
-			var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
-			var randomColor = colors[Math.floor(Math.random() * colors.length)];
-			document.getElementById("montage-btn").style.backgroundColor = randomColor;
-			document.body.style.backgroundColor = randomColor;
-			colorTimeout = setTimeout(changeColors, 300);
-		}
-
-		function stopColorChange() {
-			document.getElementById("montage-btn").style.backgroundColor = "red";
-			document.getElementById("montage-btn").classList.add("red");
-			clearTimeout(colorTimeout);
-			montageAudio.pause();
-			montageAudio.currentTime = 0;
-			montageAudio.removeEventListener('ended', stopColorChange);
-			document.getElementById("montage-btn").style.backgroundColor = "gray";
-			document.getElementById("montage-btn").classList.add("gray");
-			document.getElementById("montage-btn").innerHTML = "Disabled: 10s";
-			document.getElementById("montage-btn").setAttribute("disabled", true);
-			setTimeout(countdown, 1000);
-		}
-
-		function countdown() {
-			var timeLeft = parseInt(document.getElementById("montage-btn").innerHTML.split(" ")[1]);
-			if (timeLeft > 1) {
-				document.getElementById("montage-btn").innerHTML = "Disabled: " + (timeLeft - 1) + "s";
-				setTimeout(countdown, 1000);
-			} else {
-				resetMontage();
+		function changeBackgroundColorWithBeat() {
+			var color = '#';
+			var letters = '0123456789ABCDEF';
+			for (var i = 0; i < 6; i++) {
+				color += letters[Math.floor(Math.random() * 16)];
 			}
+			document.body.style.backgroundColor = color;
+			setTimeout(function() {
+				changeBackgroundColorWithBeat();
+			}, getBeatDelay());
 		}
 
-		function resetMontage() {
-			document.getElementById("montage-btn").style.backgroundColor = "blue";
-			document.getElementById("montage-btn").classList.remove("red", "gray");
-			document.getElementById("montage-btn").removeAttribute("disabled");
-			document.getElementById("montage-btn").innerHTML = "Montage Mode";
-			document.getElementById("montage-btn").setAttribute("onclick", "playMontage()");
-			document.body.style.backgroundColor = "white";
+		function getBeatDelay() {
+			var delay = montageAudio.duration / 100;
+			return delay;
 		}
+
+		montageBtn.addEventListener("click", function() {
+			disableMontageBtn();
+			playRandomSong();
+		});
+
+		montageAudio.addEventListener("ended", function() {
+			document.body.style.backgroundColor = "white";
+			montageBtn.style.backgroundColor = "red";
+			montageBtn.addEventListener("click", function() {
+				disableMontageBtn();
+				playRandomSong();
+			});
+		});
+
 	</script>
 </body>
 </html>
