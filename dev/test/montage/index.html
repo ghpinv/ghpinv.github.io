@@ -94,42 +94,42 @@
 			var dataArray = new Uint8Array(bufferLength);
 
 			function draw() {
-  requestAnimationFrame(draw);
-  analyser.getByteFrequencyData(dataArray);
+  			requestAnimationFrame(draw);
+  			analyser.getByteFrequencyData(dataArray);
 
-  // Calculate average frequency
-  var sum = 0;
-  for (var i = 0; i < bufferLength; i++) {
-    sum += dataArray[i];
-  }
-  var averageFrequency = sum / bufferLength;
+  			// Calculate average frequency
+  			var sum = 0;
+  			for (var i = 0; i < bufferLength; i++) {
+    			 sum += dataArray[i];
+ 			 }
+  			var averageFrequency = sum / bufferLength;
 
-  // Map frequency to color
-  var frequencyToColor = Math.floor(mapRange(averageFrequency, 0, 255, 0, colorArray.length - 1));
-  var color = colorArray[frequencyToColor];
+  			// Map frequency to color
+  			var frequencyToColor = Math.floor(mapRange(averageFrequency, 0, 255, 0, colorArray.length - 1));
+  			var color = colorArray[frequencyToColor];
 
-  // Update button background color
-  montageBtn.style.backgroundColor = color;
+  			// Update button background color
+  			montageBtn.style.backgroundColor = color;
 
-  // Check if timer has ended
-  if (timer < 0) {
-    clearInterval(countdownInterval);
-    montageBtn.style.backgroundColor = "#FF0000";
-    montageBtn.disabled = false;
-    montageBtn.innerHTML = "Montage Mode";
-    document.body.style.backgroundColor = "#FFFFFF";
-    return;
-  }
+  			// Check if timer has ended
+  			if (timer < 0) {
+    			clearInterval(countdownInterval);
+    			montageBtn.style.backgroundColor = "#FF0000";
+    			montageBtn.disabled = false;
+    			montageBtn.innerHTML = "Montage Mode";
+    			document.body.style.backgroundColor = "#FFFFFF";
+    			return;
+  			}
 
-  // Update countdown timer
-  var seconds = timer % 60;
-  montageBtn.innerHTML = "Disabled: " + seconds + "s";
+  			// Update countdown timer
+  			var seconds = timer % 60;
+  			montageBtn.innerHTML = "Disabled: " + seconds + "s";
 
-  // Decrease timer
-  timer--;
+  			// Decrease timer
+  			timer--;
 
-}
-requestAnimationFrame(draw);
+			}
+			requestAnimationFrame(draw);
 	</script>
     </body>
 </html>
