@@ -35,17 +35,23 @@
 
 	<script>
 		var montageAudio = document.getElementById("montage-audio");
-		var timeThreshold = 101000; // 1 minute and 43 seconds in milliseconds
+		var timeThreshold = 106000; // 1 minute and 43 seconds in milliseconds
 		var colorTimeout;
+
+		var montageAudio = new Audio();
+		var montageFiles = ["/montage/montage.mp3", "/montage/montage-1.mp3", "/montage/montage-2.mp3"];
 
 		function playMontage() {
 			var montageBtn = document.getElementById("montage-btn");
 			montageBtn.setAttribute("disabled", true);
 			document.getElementById("montage-btn").innerHTML = "Disabled";
+			var randomIndex = Math.floor(Math.random() * montageFiles.length);
+			montageAudio.src = montageFiles[randomIndex];
 			montageAudio.play();
 			changeColors();
 			setTimeout(stopColorChange, timeThreshold);
 		}
+
 
 
 		function changeColors() {
