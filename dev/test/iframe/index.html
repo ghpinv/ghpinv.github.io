@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://kit.fontawesome.com/d1c73cbd27.js">
+  <style>
+    .chrome-window {
+      position: relative;
+      width: 800px;
+      height: 600px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    .chrome-tab {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 30px;
+      width: 100%;
+      background-color: #f1f1f1;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .chrome-tab-text {
+      display: inline-block;
+      padding: 6px;
+    }
+
+    .chrome-tab-icons {
+      display: inline-block;
+      float: right;
+      padding: 6px;
+    }
+
+    .chrome-tab-icons i {
+      color: #888;
+      margin-right: 5px;
+    }
+
+    .chrome-content {
+      position: absolute;
+      top: 30px;
+      left: 0;
+      width: 100%;
+      height: calc(100% - 30px);
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="chrome-window">
+    <div class="chrome-tab">
+      <div class="chrome-tab-text">pinv - https://pinvgq.github.io/gs</div>
+      <div class="chrome-tab-icons">
+        <i class="fa fa-window-close"></i>
+        <i class="fa fa-window-minimize"></i>
+        <i class="fa fa-window-maximize"></i>
+      </div>
+    </div>
+    <iframe class="chrome-content" src="https://pinvgq.github.io/gs"></iframe>
+  </div>
+</body>
+</html>
