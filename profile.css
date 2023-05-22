@@ -206,7 +206,7 @@ body {
 }
 
 
-.badge-card {
+.badges-card {
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -215,13 +215,13 @@ body {
   margin: 20px auto;
 }
 
-.badge-header {
+.badges-header {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
 }
 
-.badge-picture {
+.badges-picture {
   width: 128px;
   height: 128px;
   border-radius: 50%;
@@ -231,33 +231,33 @@ body {
   overflow: hidden;
 }
 
-.badge-display-name {
+.badges-display-name {
   font-size: 18px;
   margin: 0 0 5px 0;
 }
 
-.badge-username {
+.badges-username {
   font-size: 14px;
   color: #888;
   margin: 0;
 }
 
-.badge-content {
+.badges-content {
   margin-bottom: 20px;
 }
 
-.badge-time, .badge-likes, .badge-comments {
+.badges-time, .badges-likes, .badges-comments {
   display: inline-block;
   font-size: 14px;
   color: #888;
   margin-right: 10px;
 }
 
-.badge-time {
+.badges-time {
   margin-left: 0;
 }
 
-.badge-footer {
+.badges-footer {
   border-top: 1px solid #eee;
   padding-top: 10px;
   display: flex;
