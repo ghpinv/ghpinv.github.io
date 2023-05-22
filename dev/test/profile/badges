@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Pinv's Profile</title>
+    <link rel="stylesheet" href="/profile.css">
+    <script src="https://kit.fontawesome.com/d1c73cbd27.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="profile-card">
+      <div class="profile-header">
+        <img class="profile-picture" src="https://pinvgq.github.io/imgs/user-content/pfp/user-pinv.png" alt="Profile Picture">
+        <div>
+          <h1 class="display-name">Pinv</h1>
+          <h2 class="username">@pinv</h2>
+        </div>
+      </div>
+      <div class="profile-about">
+        <p>I am a passionate web developer who loves to learn and create new things.</p>
+      </div>
+      <div class="profile-badges">
+        <span class="badge"><i class="fa fa-crown"></i> Owner</span>
+        <span class="badge"><i class="fa fa-hammer"></i> Admin</span>
+        <span class="badge"><i class="fa fa-star"></i> VIP</span>
+      </div>
+    </div>
+
+    <div class="post-card">
+      <div class="post-header">
+        <img class="post-picture" src="https://pinvgq.github.io/imgs/user-content/pfp/user-pinv.png" alt="Profile Picture">
+        <div>
+          <h3 class="post-display-name">Pinv</h3>
+          <h4 class="post-username">@pinv</h4>
+        </div>
+      </div>
+      <div class="post-content">
+        <p>Bethany Revell is not who you think she is.</p>
+      </div>
+      <div class="post-footer">
+        <span class="post-time">5/7/23 9:31 AM</span>
+        <span class="post-likes"><i class="fa fa-heart"></i> 0 likes</span>
+        <span class="post-comments"><i class="fa fa-comments"></i> 0 comments</span>
+      </div>
+    </div>
+    
+    <div class="post-card">
+      <div class="post-header">
+        <img class="post-picture" src="https://pinvgq.github.io/imgs/user-content/pfp/user-pinv.png" alt="Profile Picture">
+        <div>
+          <h3 class="post-display-name">Pinv</h3>
+          <h4 class="post-username">@pinv</h4>
+        </div>
+      </div>
+      <div class="post-content">
+        <p>This is an example post, <i>an example post of a feature only available to admins and VIPs</i></p>
+      </div>
+      <div class="post-footer">
+        <span class="post-time">5/7/23 9:31 AM</span>
+        <span class="post-likes"><i class="fa fa-heart"></i> 3 likes</span>
+        <span class="post-comments"><i class="fa fa-comments"></i> 0 comments</span>
+      </div>
+    </div>
+    
+    <div class="badge-card">
+      <div class="badge-header">
+        <img class="badge-picture" src="https://pinvgq.github.io/imgs/user-content/pfp/user-pinv.png" alt="Profile Picture">
+        <div>
+          <h3 class="badge-display-name">Pinv</h3>
+          <h4 class="badge-username">@pinv</h4>
+        </div>
+      </div>
+      <div class="badge-content">
+        <p>This is an example badge, <i>an example post of a feature only available to admins and VIPs</i></p>
+      </div>
+      <div class="post-footer">
+        <span class="badge-time">Achieved at 5/7/23 9:31 AM</span>
+      </div>
+    </div>
+
+  </body>
+</html>
