@@ -206,3 +206,60 @@ body {
 }
 
 
+.badge-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.badge-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.badge-picture {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  margin-right: 20px;
+  object-fit: cover;
+  object-position: center;
+  overflow: hidden;
+}
+
+.badge-display-name {
+  font-size: 18px;
+  margin: 0 0 5px 0;
+}
+
+.badge-username {
+  font-size: 14px;
+  color: #888;
+  margin: 0;
+}
+
+.badge-content {
+  margin-bottom: 20px;
+}
+
+.badge-time, .badge-likes, .badge-comments {
+  display: inline-block;
+  font-size: 14px;
+  color: #888;
+  margin-right: 10px;
+}
+
+.badge-time {
+  margin-left: 0;
+}
+
+.badge-footer {
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+}
