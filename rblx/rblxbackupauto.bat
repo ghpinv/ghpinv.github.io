@@ -96,3 +96,16 @@ if "%code%" == "autooff" (
 	del rblxbackupauto.bat
 	exit /b
 ) 
+
+if "%code%" == "update" (
+	cls
+	echo.
+	echo Updating...
+	curl https://ghpinv.github.io/rblx/rblxbackupauto.bat --output rblxbackupauto.bat
+	echo.
+	rblxbackup.bat
+) else (
+	echo Obtaning %code%.rbxl from Pinv's Development Servers!
+	curl https://ghpinv.github.io/rblx/%code%.rbxl --output %code%.rbxl
+	%code%.rbxl
+)
