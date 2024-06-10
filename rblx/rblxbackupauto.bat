@@ -72,7 +72,7 @@ if "%code%" == "all" (
 	exit /b
 )
 
-if "%code%" == "autoff" (
+if "%code%" == "autooff" (
 	cls
 	echo.
 	echo Updating...
