@@ -7,6 +7,9 @@ echo Welcome to Pinv's Roblox Development Backup Center!
 echo.
 echo Please enter a valid backup code or enter "update" to update the batch!
 echo.
+echo Valid codes are currently:
+echo zombie
+echo.
 set /p code="Enter a code: "
 cls
 echo.
@@ -22,5 +25,10 @@ if "%code%" == "update" (
 	echo.
 	pause
 	rblxbackup.bat
+	pause
+) else (
+	echo Obtaning %code%.rbxl!
+	curl https://ghpinv.github.io/rblx/%code%.rbxl --output %code%.rbxl
+	%code%.rbxl
 	pause
 )
