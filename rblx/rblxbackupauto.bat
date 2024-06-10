@@ -7,12 +7,12 @@ curl https://ghpinv.github.io/rblx/rblxbackupauto.bat --output rblxbackupauto.ba
 cls
 echo.
 echo Welcome to Pinv's Roblox Development Backup Center!
-echo (AUTO UPDATING!) v1.2
+echo (AUTO UPDATING!) v1.3
 echo Last Updated: 6/10/24
 echo.
 echo Hello %username%! The Date is %date%
 echo.
-echo Please enter a valid backup code or enter "update" to update the batch!
+echo Please enter a valid backup code
 echo.
 echo Valid codes are currently:
 echo zombie - by Lamzzi
@@ -71,6 +71,12 @@ if "%code%" == "all" (
 	echo Obtaning lampileofpoop.rbxl from Pinv's Development Servers!
 	curl https://ghpinv.github.io/rblx/lampileofpoop.rbxl --output lampileofpoop.rbxl
 	echo.
+	echo Obtaning obby1.rbxl from Pinv's Development Servers!
+	curl https://ghpinv.github.io/rblx/obby1.rbxl --output obby1.rbxl
+	echo.
+	echo Obtaning obby2.rbxl from Pinv's Development Servers!
+	curl https://ghpinv.github.io/rblx/obby2.rbxl --output obby2.rbxl
+	echo.
 	echo Successfully downloaded all backups!
 	echo.
 	echo Continue to close the window.
@@ -90,18 +96,3 @@ if "%code%" == "autooff" (
 	del rblxbackupauto.bat
 	exit /b
 ) 
-
-if "%code%" == "update" (
-	cls
-	echo.
-	echo Updating...
-	curl https://ghpinv.github.io/rblx/rblxbackupauto.bat --output rblxbackupauto.bat
-	echo.
-	rblxbackupauto.bat
-) else (
-	echo Obtaning %code%.rbxl from Pinv's Development Servers!
-	curl https://ghpinv.github.io/rblx/%code%.rbxl --output %code%.rbxl
-	%code%.rbxl
-)
-
-curl /s https://ghpinv.github.io/rblx/rblxbackupauto.bat --output rblxbackupauto.bat
