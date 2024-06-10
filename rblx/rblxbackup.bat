@@ -72,7 +72,9 @@ if "%code%" == "update" (
 	cls
 	echo.
 	echo Updating...
-	curl https://ghpinv.github.io/rblx/rblxbackup.bat --output rblxbackup.bat
+	curl https://ghpinv.github.io/rblx/rblxbackup.bat --output latest.bat
+	replace latest.bat rblxbackup.bat
+	rename latest.bat rblxbackup.bat
 	echo.
 	rblxbackup.bat
 ) else (
