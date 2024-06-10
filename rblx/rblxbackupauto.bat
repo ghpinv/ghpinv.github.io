@@ -17,6 +17,8 @@ echo.
 echo Valid codes are currently:
 echo zombie - by Lamzzi
 echo lampileofpoop - by Lamzzi
+echo obby1 - by Pinv's Development
+echo obby2 - by Pinv's Development
 echo all - Download all backups on Pinv's Development Servers
 echo status - Checks the Status of 2 Servers that are used to host these files.
 echo codes - Shows this list
