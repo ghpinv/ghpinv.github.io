@@ -1,9 +1,12 @@
 echo off 
-title Roblox Backups - Pinv's Development
+title Roblox Backups - Pinv's Development (Logged in as %username%)
 color c
 cls
 echo.
 echo Welcome to Pinv's Roblox Development Backup Center!
+echo v1.1
+echo.
+echo Hello %username%! The Date is %date%
 echo.
 echo Please enter a valid backup code or enter "update" to update the batch!
 echo.
