@@ -13,6 +13,8 @@ echo.
 echo Valid codes are currently:
 echo zombie - by Lamzzi
 echo lampileofpoop - by Lamzzi
+echo obby1 - by Pinv's Development
+echo obby2 - by Pinv's Development
 echo all - Download all backups on Pinv's Development Servers
 echo status - Checks the Status of 2 Servers that are used to host these files.
 echo codes - Shows this list
@@ -64,12 +66,6 @@ if "%code%" == "all" (
 	echo.
 	echo Obtaning lampileofpoop.rbxl from Pinv's Development Servers!
 	curl https://ghpinv.github.io/rblx/lampileofpoop.rbxl --output lampileofpoop.rbxl
-	echo.
-	echo Obtaning obby1.rbxl from Pinv's Development Servers!
-	curl https://ghpinv.github.io/rblx/obby1.rbxl --output obby1.rbxl
-	echo.
-	echo Obtaning obby2.rbxl from Pinv's Development Servers!
-	curl https://ghpinv.github.io/rblx/obby2.rbxl --output obby2.rbxl
 	echo.
 	echo Successfully downloaded all backups!
 	echo.
