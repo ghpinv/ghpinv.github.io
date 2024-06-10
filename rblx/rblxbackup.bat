@@ -8,8 +8,8 @@ echo.
 echo Please enter a valid backup code or enter "update" to update the batch!
 echo.
 echo Valid codes are currently:
-echo zombie | by Lamzzi
-echo lampileofpoop | by Lamzzi
+echo zombie - by Lamzzi
+echo lampileofpoop - by Lamzzi
 echo.
 set /p code="Enter a code: "
 cls
