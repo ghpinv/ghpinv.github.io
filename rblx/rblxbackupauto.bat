@@ -78,7 +78,7 @@ if "%code%" == "autooff" (
 	echo Updating...
 	curl https://ghpinv.github.io/rblx/rblxbackup.bat --output rblxbackup.bat
 	echo.
-	echo We updated your Version to (autoupdateoff), Please Restart this file for the update...
+	echo Updated Please Restart
 	echo.
 	pause
 	del rblxbackupauto.bat
