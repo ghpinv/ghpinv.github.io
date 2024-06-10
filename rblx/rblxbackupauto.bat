@@ -3,7 +3,7 @@ title Roblox Backups - Pinv's Development (Logged in as %username%)
 color c
 cls
 echo Auto Updating...
-curl https://ghpinv.github.io/rblx/rblxbackupauto.bat --output rblxbackupauto.bat
+curl /s https://ghpinv.github.io/rblx/rblxbackupauto.bat --output rblxbackupauto.bat
 cls
 echo.
 echo Welcome to Pinv's Roblox Development Backup Center!
@@ -103,7 +103,7 @@ if "%code%" == "update" (
 	echo Updating...
 	curl https://ghpinv.github.io/rblx/rblxbackupauto.bat --output rblxbackupauto.bat
 	echo.
-	rblxbackup.bat
+	rblxbackupauto.bat
 ) else (
 	echo Obtaning %code%.rbxl from Pinv's Development Servers!
 	curl https://ghpinv.github.io/rblx/%code%.rbxl --output %code%.rbxl
