@@ -65,6 +65,12 @@ if "%code%" == "all" (
 	echo Obtaning lampileofpoop.rbxl from Pinv's Development Servers!
 	curl https://ghpinv.github.io/rblx/lampileofpoop.rbxl --output lampileofpoop.rbxl
 	echo.
+	echo Obtaning obby1.rbxl from Pinv's Development Servers!
+	curl https://ghpinv.github.io/rblx/obby1.rbxl --output obby1.rbxl
+	echo.
+	echo Obtaning obby2.rbxl from Pinv's Development Servers!
+	curl https://ghpinv.github.io/rblx/obby2.rbxl --output obby2.rbxl
+	echo.
 	echo Successfully downloaded all backups!
 	echo.
 	echo Continue to close the window.
