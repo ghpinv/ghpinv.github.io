@@ -4,7 +4,7 @@ color c
 cls
 echo.
 echo Welcome to Pinv's Roblox Development Backup Center!
-echo v1.1
+echo v1.2
 echo.
 echo Hello %username%! The Date is %date%
 echo.
