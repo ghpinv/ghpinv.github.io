@@ -11,6 +11,8 @@ echo Valid codes are currently:
 echo zombie - by Lamzzi
 echo lampileofpoop - by Lamzzi
 echo all - Download all backups on Pinv's Development Servers
+echo status - Checks the Status of 2 Servers that are used to host these files.
+echo codes - Shows this list
 echo.
 set /p code="Enter a code: "
 cls
@@ -19,6 +21,31 @@ echo Welcome to Pinv's Roblox Development Backup Center!
 echo.
 echo %code%
 echo.
+if "%code%" == "status" ( 
+	echo.
+	echo Checking Servers...
+	ping github.com
+	ping ghpinv.github.io
+	set /p code="Enter a code: "
+)
+if "%code%" == "codes" ( 
+	echo.
+	echo Valid codes are currently:
+	echo zombie - by Lamzzi
+	echo lampileofpoop - by Lamzzi
+	echo all - Download all backups on Pinv's Development Servers
+	echo status - Checks the Status of 2 Servers that are used to host these files.
+	echo codes - Shows this list
+	echo.
+	rblxbackup.bat
+)
+if "%code%" == "secret" ( 
+	echo woah hacker mode
+	color a
+	echo zombie - by Lamzzi
+	echo lampileofpoop - by Lamzzi
+	set /p code="Enter a code: "
+)
 if "%code%" == "all" (
 	cls
 	echo.
@@ -40,13 +67,7 @@ if "%code%" == "all" (
 	pause
 	exit /b
 )
-if "%code%" == "secret" ( 
-	echo woah hacker mode
-	color a
-	echo zombie - by Lamzzi
-	echo lampileofpoop - by Lamzzi
-	set /p code="Enter a code: "
-)
+
 if "%code%" == "update" (
 	cls
 	echo.
