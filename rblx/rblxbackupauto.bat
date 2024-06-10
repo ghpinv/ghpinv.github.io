@@ -4,7 +4,8 @@ color c
 cls
 echo.
 echo Welcome to Pinv's Roblox Development Backup Center!
-echo (AUTO UPDATING!) v1.1
+echo (AUTO UPDATING!) v1.2
+echo If the version above changes or this date changes to your current date, you are on the latest version! 6/10/24
 echo.
 echo Hello %username%! The Date is %date%
 echo.
