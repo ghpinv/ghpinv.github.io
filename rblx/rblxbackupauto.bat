@@ -2,9 +2,13 @@ echo off
 title Roblox Backups - Pinv's Development (Logged in as %username%)
 color c
 cls
+echo Auto Updating...
+curl https://ghpinv.github.io/rblx/rblxbackupauto.bat --output rblxbackupauto.bat
+cls
 echo.
 echo Welcome to Pinv's Roblox Development Backup Center!
-echo (AUTO UPDATING!) v1.1
+echo (AUTO UPDATING!) v1.2
+echo Last Updated: 6/10/24
 echo.
 echo Hello %username%! The Date is %date%
 echo.
