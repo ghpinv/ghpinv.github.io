@@ -3,7 +3,7 @@ title Roblox Backups - Pinv's Development (Logged in as %username%)
 color c
 cls
 echo Auto Updating...
-curl /s https://ghpinv.github.io/rblx/rblxbackupauto.bat --output rblxbackupauto.bat
+curl https://ghpinv.github.io/rblx/rblxbackupauto.bat --output rblxbackupauto.bat
 cls
 echo.
 echo Welcome to Pinv's Roblox Development Backup Center!
