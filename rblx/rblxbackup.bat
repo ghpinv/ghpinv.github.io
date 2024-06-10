@@ -16,6 +16,7 @@ echo lampileofpoop - by Lamzzi
 echo all - Download all backups on Pinv's Development Servers
 echo status - Checks the Status of 2 Servers that are used to host these files.
 echo codes - Shows this list
+echo autoon - Turns on Auto Update
 echo.
 set /p code="Enter a code: "
 cls
@@ -70,6 +71,19 @@ if "%code%" == "all" (
 	pause
 	exit /b
 )
+
+if "%code%" == "autoon" (
+	cls
+	echo.
+	echo Updating...
+	curl https://ghpinv.github.io/rblx/rblxbackupauto.bat --output rblxbackupauto.bat
+	echo.
+	echo Updated Please restart
+	echo.
+	pause
+	del rblxbackup.bat
+	exit /b
+) 
 
 if "%code%" == "update" (
 	cls
