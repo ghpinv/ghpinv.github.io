@@ -36,6 +36,7 @@ if "%code%" == "status" (
 	echo Checking Servers...
 	ping github.com
 	ping ghpinv.github.io
+	ping pinvdev.github.io
 	set /p code="Enter a code: "
 )
 if "%code%" == "codes" ( 
