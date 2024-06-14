@@ -32,6 +32,8 @@ if "%code%" == "status" (
 	echo Checking Servers...
 	ping github.com
 	ping ghpinv.github.io
+	ping pinvdev.github.io
+	ping pinvdev.web.app
 	set /p code="Enter a code: "
 )
 if "%code%" == "codes" ( 
@@ -62,10 +64,16 @@ if "%code%" == "all" (
 	pause
 	echo Downloading all backups!
 	echo Obtaning zombie.rbxl from Pinv's Development Servers!
-	curl https://ghpinv.github.io/rblx/zombie.rbxl --output zombie.rbxl
+	curl https://pinvdev.web.app/i/rblx/zombie.rbxl --output zombie.rbxl
 	echo.
 	echo Obtaning lampileofpoop.rbxl from Pinv's Development Servers!
-	curl https://ghpinv.github.io/rblx/lampileofpoop.rbxl --output lampileofpoop.rbxl
+	curl https://pinvdev.web.app/i/rblx/lampileofpoop.rbxl --output lampileofpoop.rbxl
+	echo.
+	echo Obtaning obby1.rbxl from Pinv's Development Servers!
+	curl https://pinvdev.web.app/i/rblx/obby1.rbxl --output obby1.rbxl
+	echo.
+	echo Obtaning obby2.rbxl from Pinv's Development Servers!
+	curl https://pinvdev.web.app/i/rblx/obby2.rbxl --output obby2.rbxl
 	echo.
 	echo Successfully downloaded all backups!
 	echo.
